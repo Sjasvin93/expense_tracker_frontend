@@ -4,6 +4,8 @@ import { Link, useNavigate } from 'react-router-dom';
 import Input from '../../components/Inputs/Input';
 import { validateEmail } from '../../utils/helper';
 import ProfilePhotoSelector from '../../components/Inputs/ProfilePhotoSelector';
+import axiosInstance from "../../utils/axiosInstance";
+import { API_PATHS } from "../../utils/apiPath";
 
 
 
@@ -38,7 +40,7 @@ function SignUp() {
 
     let profileImageUrl = "";
 
-    if(!fullName){
+    if (!fullName) {
       setError("Please enter your full name");
       return;
     }
@@ -55,7 +57,35 @@ function SignUp() {
 
     setError("");
 
-    //Login API Call
+    let response;
+    try {
+      response = await axiosInstance.post(API_PATHS.AUTH.REGISTER, {
+        fullName,
+        email,
+        password
+      });
+
+      console.log();      
+
+      const { errors } = response?.data || {};
+
+      console.log(response);      
+
+      if(response.status === 200){
+        navigate("/login");
+      }
+
+      setError(errors[0]);
+    } catch (error) {
+      console.log(response);      
+      console.log(error);
+      
+      if (error.response && error.response.data.error) {
+        setError(error.response.data.error);
+      } else {
+        setError("Something went wrong, Please try again.");
+      }
+    }
   }
 
   return (

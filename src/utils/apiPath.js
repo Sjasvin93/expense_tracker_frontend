@@ -1,0 +1,27 @@
+export const BASE_URL="http://localhost:8090"
+
+export const API_PATHS = {
+    AUTH:{
+        LOGIN:"/api/v1/user/login-user",
+        REGISTER:"/api/v1/user/register-user",
+        GET_USER_INFO: (userId) => `/api/v1/user/user-info/${userId}`
+    },
+    DASHBOARD:{
+        GET_DATA: (userId) => `/api/v1/dashboard/${userId}`
+    },
+    INCOME:{
+        ADD_INCOME:"/api/v1/income/add",
+        GET_ALL_INCOME: "/api/v1/income/get",
+        DELETE_INCOME:(incomeId) => `api/v1/income/${incomeId}`,
+        DOWNLOAD_INCOME: `/api/v1/income/downloadexcel`
+    },
+    EXPENSE:{
+        ADD_EXPENSE:'/api/v1/expense/add',
+        GET_ALL_EXPENSE:'/api/v1/expense/get',
+        DELETE_EXPENSE:(expenseId) => `/api/v1/expense/${expenseId}`,
+        DOWNLOAD_EXPENSE: '/api/v1/expense/downloadexcel'
+    },
+    IMAGE: {
+        UPLOAD_IMAGE: '/api/v1/user/upload-image'
+    }
+}
