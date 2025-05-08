@@ -21,7 +21,6 @@ const useUserAuth = () => {
                     updateUser(response.data);
                 }
             } catch (error) {
-                console.log(error);
                 if (isMounted) {
                     clearUser();
                     navigate("/login");

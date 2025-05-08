@@ -63,23 +63,16 @@ function SignUp() {
         fullName,
         email,
         password
-      });
-
-      console.log();      
+      });    
 
       const { errors } = response?.data || {};
-
-      console.log(response);      
 
       if(response.status === 200){
         navigate("/login");
       }
 
       setError(errors[0]);
-    } catch (error) {
-      console.log(response);      
-      console.log(error);
-      
+    } catch (error) {      
       if (error.response && error.response.data.error) {
         setError(error.response.data.error);
       } else {

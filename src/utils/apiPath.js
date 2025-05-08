@@ -7,11 +7,11 @@ export const API_PATHS = {
         GET_USER_INFO: (userId) => `/api/v1/user/user-info/${userId}`
     },
     DASHBOARD:{
-        GET_DATA: (userId) => `/api/v1/dashboard/${userId}`
+        GET_DATA: "/api/v1/dashboard/"
     },
     INCOME:{
         ADD_INCOME:"/api/v1/income/add",
-        GET_ALL_INCOME: "/api/v1/income/get",
+        GET_ALL_INCOME: "/api/v1/income/get-all-income",
         DELETE_INCOME:(incomeId) => `api/v1/income/${incomeId}`,
         DOWNLOAD_INCOME: `/api/v1/income/downloadexcel`
     },

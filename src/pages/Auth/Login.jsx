@@ -47,8 +47,6 @@ function Login() {
         password
       });
       const { token, user } = await response.data.data;
-      console.log(response);      
-      console.log(token, user);
       
       if (token) {
         localStorage.setItem("token", token);
