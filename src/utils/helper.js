@@ -39,7 +39,9 @@ export const prepareExpenseBarChartData = (data = []) => {
 }
 
 export const prepareIncomeBarChartData = (data = []) => {
-  const sortedData = [...data].sort((a,b) => new Date(a.date) - new(b.date))
+  console.log("0000000000>>>>>>>>", data, typeof data, Array.isArray(data));
+  
+  const sortedData = [...data].sort((a, b) => new Date(a.date) - new Date(b.date));
 
   const chartData = sortedData.map((item) => ({
     month: moment(item?.date).format("Do MMM"),

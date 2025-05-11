@@ -10,9 +10,9 @@ export const API_PATHS = {
         GET_DATA: "/api/v1/dashboard/"
     },
     INCOME:{
-        ADD_INCOME:"/api/v1/income/add",
+        ADD_INCOME:"/api/v1/income/create-income",
         GET_ALL_INCOME: "/api/v1/income/get-all-income",
-        DELETE_INCOME:(incomeId) => `api/v1/income/${incomeId}`,
+        DELETE_INCOME:(incomeId) => `api/v1/income/delete-income/${incomeId}`,
         DOWNLOAD_INCOME: `/api/v1/income/downloadexcel`
     },
     EXPENSE:{
